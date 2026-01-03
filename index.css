@@ -376,15 +376,12 @@ nav {
 /* text column */
 
 .text-column {
-  background: rgba(196, 117, 200, 0.12);
+  background: rgba(139, 74, 142, 0.08);  
   margin: 2.8rem 0 0.5rem; 
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   padding: 0 2.2rem; 
-}
-
-.text-column h1, .text-column h2 {
-  color: #4d2950; 
+  color: #412042; 
 }
 
 .text-column h1 {
@@ -399,6 +396,42 @@ nav {
   font-weight: 700;
   margin-bottom: 1.5rem;
   margin-top: 2rem;
+}
+
+.recipients-card {
+  border-left: 5px solid var(--primary-orange);
+  padding: 1.8rem 1.5rem 0.7rem; 
+  margin-bottom: 1.5rem;
+  background: var(--cream);
+  border-radius: 0 8px 8px 0;
+  max-width: 900px;
+  color: var(--dark)
+}
+
+.recipients-card h3 {
+  margin: 0; 
+  color: var(--dark-orange); 
+}
+
+.recipient-list {
+  list-style-type: none;
+  padding: 0; 
+}
+
+.recipient-list li {
+  color: var(--dark);
+  font-weight: 600; 
+  font-size: 1rem;  
+  padding: 0 0 1rem 2rem; 
+  position: relative;
+}
+
+.recipient-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary-orange);
+  font-weight: 700;
 }
 
 /* form column */
@@ -426,38 +459,6 @@ nav {
 
 .required {
   color: var(--primary-orange); 
-}
-
-.recipients {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 1.8rem 0 0.3rem 2.5rem;
-  border-radius: 8px;
-  margin: 2rem 0;
-}
-
-.recipients h3 {
-  margin: 0; 
-  color: var(--light-orange); 
-}
-
-.recipient-list {
-  list-style-type: none;
-  padding: 0; 
-}
-
-.recipient-list li {
-  color: white;
-  font-size: 1rem;  
-  padding: 0 0 1rem 2rem; 
-  position: relative;
-}
-
-.recipient-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--primary-orange);
-  font-weight: 700;
 }
 
 .input-group {
