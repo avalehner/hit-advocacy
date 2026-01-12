@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: advocacy-platform
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: GEOCODIO_API_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
