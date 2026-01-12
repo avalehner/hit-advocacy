@@ -13,6 +13,13 @@ const letterAddressEl = document.getElementById('letter-address')
 const emailContentEl = document.getElementById('email-content')
 const emailSubjectEl = document.getElementById('email-subject')
 const addressLineEl = document.getElementById('address-line')
+const formSubmitModal = document.getElementById('form-submit-modal')
+const modalMessage = document.getElementById('modal-message')
+const modalClose = document.getElementById('modal-close')
+const emailRecipients = document.getElementById('email-recipients')
+const userSenatorModal = document.getElementById('user-senator-modal')
+const userAssemblyMemberModal = document.getElementById('user-assembly-member-modal')
+
 
 //store legislator data 
 let currentLegislators = null
@@ -138,7 +145,15 @@ const sendEmails = async () => {
     //   console.log(`${recipient.title} email sent`)
     // }
   // }
-
+    
+    //update modal
+    modalMessage.textContent = 'Success! Your letter has been sent to the following representatives:'
+    modalClose.classList.remove('hidden')
+    emailRecipients.classList.remove('hidden')
+    userSenatorModal.textContent = `Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`
+    userAssemblyMemberModal.textContent = `Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`
+    
+    // alert('Success! Your letter has been sent to the following representatives: Governor Kathy Hochul, Senate Mahority Leader Andrea Stewart-Cousins, Assembly Speaker Carl Heastie, Senate Commutte on Educatoin Chair Shelly Mayer, Assembly Committee on Education Chair Michael Benedetto, Your State Senator: Jose Serrano your Assembly Member: Eddie Gibbs')
     console.log('success! your emails have been sent')
   } catch (error) {
     console.error('Error sending emails:', error)
@@ -163,8 +178,9 @@ const handleFormSubmit = async () => {
     return 
   }
 
+  //open loading modal 
+  formSubmitModal.classList.remove('hidden')
   sendEmailBtn.disabled = true
-  sendEmailBtn.textContent = 'Looking up legislators...'
 
   try {
     const fullAddress = `${streetAddress}, ${zip}`
@@ -183,7 +199,8 @@ const handleFormSubmit = async () => {
       senateMemberEl.textContent = `Your State Senator: ${data.senator.first_name} ${data.senator.last_name} `
       assemblyMemberEl.textContent = `Your Assembly Member: ${data.assemblymember.first_name} ${data.assemblymember.last_name} `
       addressLineEl.textContent = `Dear Governor Hochul, Senate Majority Leader Stewart-Cousins, and Speaker Heastie, Chair Mayer, Chair Benedetto, Senator ${data.senator.last_name}, Assembly Member ${data.assemblymember.last_name},`
-
+      
+      modalMessage.textContent='Sending emails...'
 
       //call send email function 
       await sendEmails(data)
@@ -195,7 +212,6 @@ const handleFormSubmit = async () => {
       console.error(error)
   } finally {
     sendEmailBtn.disabled = false 
-    sendEmailBtn.textContent = '✉ Send Email'
   }
 }
 
@@ -206,3 +222,11 @@ apartmentEl.addEventListener('input', updateLetterPreview)
 cityEl.addEventListener('input', updateLetterPreview)
 zipEl.addEventListener('input' , updateLetterPreview)
 sendEmailBtn.addEventListener('click', handleFormSubmit)
+modalClose.addEventListener('click', () =>{
+  formSubmitModal.classList.add('hidden')
+  modalMessage.textContent = 'Looking up representatives...'
+  modalClose.classList.add('hidden')
+  emailRecipients.classList.add('hidden')
+  userSenatorModal.textContent = ''
+  userAssemblyMemberModal.textContent = ''
+})

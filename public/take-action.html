@@ -4,14 +4,15 @@
     <link rel="stylesheet" href="index.css"> 
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ab21415223.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <nav>
       <div class="nav-container">
           <ul class="nav-links">
-            <!-- <li><a href="index.html">Home</a></li> -->
             <li><a href="index.html">What is HIT?</a></li>
-            <!-- <li><a href="impact.html">Impact</a></li> -->
+            <li><a href="coalition.html">HIT Advocacy Coalition</a></li>
+            <li><a href="impact.html">Impact</a></li>
           </ul>
         <div>
            <a class="nav-button" href="take-action.html">Take Action</a>
@@ -91,6 +92,23 @@
           </div>
         </div>
       </section>
+      <div class="hidden form-submit-modal" id="form-submit-modal">
+        <div class="modal-content">
+          <i class="hidden fa-solid fa-x modal-close" id="modal-close"></i>
+          <h3 id="modal-message">Looking up legislators...</h3>
+          <div>
+            <ul class="hidden recipient-list" id="email-recipients">
+              <li>Governor Kathy Hochul</li>
+              <li>Senate Majority Leader Andrea Stewart-Cousins</li>
+              <li>Assembly Speaker Carl Heastie</li>
+              <li>Senate Committee on Education Chair Shelley Mayer</li>
+              <li>Assembly Committee on Education Chair Michael Benedetto</li>
+              <li id="user-senator-modal"><!-- inject with javascript--></li>
+              <li id="user-assembly-member-modal"><!-- inject with javascript--></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="script.js" defer></script>
   </body>

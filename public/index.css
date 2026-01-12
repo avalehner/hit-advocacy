@@ -509,7 +509,45 @@ input {
   overflow-y: scroll; 
 }
 
+.form-submit-modal {
+  position: fixed; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  z-index: 1; 
+  top: 30%; 
+  left: 33%; 
+  overflow: auto; 
+  background-color: var(--cream); 
+  padding: 1.5rem; 
+  border-radius: 10px;
+  border: 2px solid #e87722; 
+}
 
+.modal-content {
+  margin: 0.5rem;
+}
+
+.modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 1rem; 
+  font-weight: bold;
+  transition: all 0.3s ease; 
+  margin-bottom: 2px; 
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: rgb(171, 17, 17);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  color: var(--dark-orange); 
+  margin-top: 10px; 
+} 
 /* take-action.html end */
 
 /* footer */
@@ -552,6 +590,12 @@ footer {
 
 .fade-in-right {
     animation: fadeInRight 0.8s ease;
+}
+
+/* universal classes */
+
+.hidden {
+  display: none !important;  
 }
 
 /* media queries */
