@@ -1,0 +1,13 @@
+Styling 
+2. optimize for mobile 
+3. create and style impact.html 
+4. create and style coalition page
+
+Hosting
+1. Buy domian 
+2. figure out how to host website: netlify or railway?
+
+Content
+1. Add links to NSSA in home page
+2. Write letter to representative 
+3. Link one pagers to home page/take action page

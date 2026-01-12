@@ -463,6 +463,13 @@ nav {
 
 .input-group {
   margin-bottom: 1.5rem;
+  flex: 1 
+}
+
+.address-group {
+  display: flex; 
+  gap: 2em; 
+  width: 96%
 }
 
 label {
@@ -550,6 +557,7 @@ footer {
 /* media queries */
 
 @media (max-width: 1000px) {
+  /* index.html start */
   .main-container{
     width: 1400px; 
     max-width: calc(100% - 1rem);
@@ -587,6 +595,33 @@ footer {
   .city-card-container {
     display: block; 
     gap: 2rem; 
+  }
+
+  /* index.html end */
+
+  /* take-action.html start */
+
+  .email-form-container {
+    display: block; 
+    max-width: calc(100% - 5rem);
+    margin: 8rem auto 1rem;
+  }
+
+  .text-column {
+    padding: 2.2rem 2.2rem 1rem; 
+    margin: 3rem 0 1rem; 
+    border-radius: 7px;  
+/*  
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px; */
+  }
+
+
+  .form-column { 
+    margin-top: 0rem;
+    border-radius: 7px;  
+    /* border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px; */
   }
 
 } 

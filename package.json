@@ -1,0 +1,28 @@
+{
+  "name": "hit-advocacy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avalehner/hit-advocacy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/avalehner/hit-advocacy/issues"
+  },
+  "homepage": "https://github.com/avalehner/hit-advocacy#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "geocodio-library-node": "^1.13.0",
+    "resend": "^6.7.0"
+  }
+}

@@ -11,7 +11,7 @@
           <ul class="nav-links">
             <!-- <li><a href="index.html">Home</a></li> -->
             <li><a href="index.html">What is HIT?</a></li>
-            <li><a href="impact.html">Impact</a></li>
+            <!-- <li><a href="impact.html">Impact</a></li> -->
           </ul>
         <div>
            <a class="nav-button" href="take-action.html">Take Action</a>
@@ -27,32 +27,43 @@
             <ul class="recipient-list">
               <li>Governor Kathy Hochul</li>
               <li>Senate Majority Leader Andrea Stewart-Cousins</li>
-              <li>Speaker Carl Heastie</li>
-              <li id="user-senator">Your State Senator: [Name will appear here]</li>  
-              <li id="user-assembly">Your Assembly Member: [Name will appear here]</li>
+              <li>Assembly Speaker Carl Heastie</li>
+              <li>Senate Committee on Education Chair Shelley Mayer</li>
+              <li>Assembly Committee on Education Chair Michael Benedetto</li>
+              <li id="user-senator">Your State Senator</li>  
+              <li id="user-assembly">Your Assembly Member</li>
             </ul>
           </div>
-          <h2>[insert subheading]</h2>
-          <p>[insert content]</p>
-          <p>[insert content]</p>
         </div>
         <div class="form-column">
           <div class="form-column-header">
             <h2>Send an Email to Your Representatives</h2>
             <p>Asterisk (<span class="required">*</span>) denotes required field</p>
           </div>
-          <form>
+          <div class="form">
             <div class="input-group">
-              <label for="fullname">Full Name <span class="required">*</span></label>
-              <input id="fullname" type="text" name="fullname" required="">
+              <label for="full-name">Full Name <span class="required">*</span></label>
+              <input id="full-name" type="text" name="fullname" required="">
             </div>
-            <div class="input-group">
-              <label for="address">Address <span class="required">*</span></label>
-              <input id="address" type="text" name="address" required="">
+            <div class="address-group">
+              <div class="input-group">
+                <label for="address">Address <span class="required">*</span></label>
+                <input id="address" type="text" name="address" required="">
+              </div>
+              <div class="input-group">
+                <label for="apartment">Apartment</label>
+                <input id="apartment" type="text" name="apartment">
+              </div>
             </div>
-            <div class="input-group">
-              <label for="zip">Zip <span class="required">*</span></label>
-              <input id="Zip" type="text" name="zip" required="">
+            <div class="address-group">
+              <div class="input-group">
+                <label for="city">City </label>
+                <input id="city" type="text" name="city">
+              </div>
+              <div class="input-group">
+                <label for="zip">Zip <span class="required">*</span></label>
+                <input id="zip" type="text" name="zip" required="">
+              </div>
             </div>
             <div class="input-group">
               <label for="phone">Phone</label>
@@ -62,25 +73,26 @@
               <label for="email">Email <span class="required">*</span></label>
               <input id="email" type="text" name="email" required="">
             </div>
-            <button class="send-email-btn">✉ Send Email</button>
+            <button class="send-email-btn" id="send-email-btn">✉ Send Email</button>
             <div class="email-container">
-              <p class="email-subject">Subject: Urgent Request to Fund High-Impact Tutoring</p>
-              <div class="email-content">
-                <p>Dear Governor Hochul, Senate Majority Leader Stewart-Cousins, and Speaker Heastie,</p>
+              <p class="email-subject" id="email-subject">Subject: Urgent Request to Fund High-Impact Tutoring</p>
+              <div class="email-content" id="email-content">
+                <p id="address-line">Dear Governor Hochul, Senate Majority Leader Stewart-Cousins, and Speaker Heastie, Chair Mayer, Chair Benedetto</p>
                 <p>I am writing to urge you to fund High-Impact Tutoring (HIT). High-Impact Tutoring is a proven, research-backed intervention that helps students close academic gaps, improve attendance, and increase overall well-being.</p>
                 <p>Despite its effectiveness, the federal government announced it's canceling funding for HIT. Without state investment, thousands of New York students will lose access to this critical support.</p>
                 <p>High-Impact Tutoring is 3-5 times more effective than other common interventions, with students gaining an average of 9 months of additional learning in a single academic year. Nearly 20,000 students have already been served across New York State with remarkable results.</p>
                 <p>I urge you to champion sustained funding for High-Impact Tutoring programs in the upcoming budget cycle and work to expand these programs statewide. Every student in New York deserves access to this evidence-based intervention.</p>  
                 <p>Thank you for your consideration and your service to our community.</p>
                 <p>Sincerely,</p>
-                <p>[Your Name]</p>
-                <p>[Your Address]</p>
+                <p id="letter-name">[Your Name]</p>
+                <p id="letter-address">[Your Address]</p>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </section>
     </main>
+    <script src="script.js" defer></script>
   </body>
   <footer>
       <p>© ExpandED Schools. All rights reserved.</p>
