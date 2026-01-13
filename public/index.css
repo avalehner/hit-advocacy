@@ -1,5 +1,6 @@
 :root {
   --primary-purple: #5c2d5f;
+  --berry: #6B2D5C; 
   --primary-orange: #e87722;
   --dark-orange: #c66516; 
   --light-orange: #ffb366; 
@@ -20,7 +21,7 @@ body {
 /* links */
 
 .nav-links a {
-  color: var(--primary-purple); 
+  color: white; 
   font-weight: 600;
   font-size: 1rem; 
   position: relative; 
@@ -31,7 +32,7 @@ a {
 }
 
 .nav-links a:hover {
-  color: var(--primary-orange);
+  /* color: var(--primary-orange); */
   transition: all 0.3s ease; 
 }
 
@@ -97,8 +98,8 @@ nav {
   top: 0;
   z-index: 1000;
   width: 100%; 
-  border-bottom: 2px solid var(--primary-orange); 
-  background-color: var(--cream); 
+  /* border-bottom: 2px solid var(--primary-orange);  */
+  background-color: var(--berry); 
 }
 
 .nav-container {
@@ -121,19 +122,23 @@ nav {
 /* index.html start */
 
 .main-container {
-  width: 1400px; 
+  width: 1200px; 
   max-width: calc(100% - 10rem);
   margin: auto;
 }
 
 /* hero section */
 
+.hero-content-container {
+  width: 1200px; 
+  max-width: calc(100% - 10rem);
+  margin: auto;
+}
+
 .hero {
-  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--light-purple) 100%);
+  background: linear-gradient(135deg, #6B2D5C 0%, #4A1F3F 100%);
   color: white; 
-  font-size: 2rem; 
-  font-weight: 900; 
-  padding: 8rem 2rem 2.5rem; 
+  padding: 10rem 2rem 4rem; 
   text-align: center; 
 }
 
@@ -143,10 +148,37 @@ nav {
 
 .hero h1 {
   margin: 0; 
+  font-weight: 600; 
+  font-size: 4rem; 
+}
+
+.hero p {
+  font-size: 1.3rem;
 }
 
 .hit-text {
   color: var(--light-orange);  
+}
+
+/* About the Coalition */
+
+.about-the-coalition {
+  padding: 2.5rem 2rem 1.5rem; 
+}
+
+.about-the-coalition h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--berry);
+  margin-bottom: 2.3rem;
+  text-align: center; 
+}
+
+.about-the-coalition p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+  color: var(--dark);
 }
 
 /* what is hit? */
@@ -163,20 +195,21 @@ nav {
 .what-is-hit h3 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--primary-purple);
+  color: var(--berry);
   margin-bottom: 1rem;
   margin-top: 0;
 }
 
 .what-is-hit h2 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--primary-purple);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--berry);
   margin-bottom: 1.5rem;
+  text-align: center; 
 }
 
 .what-is-hit h4 {
-  color: var(--primary-purple);
+  color: var(--berry);
   font-weight: 700;
   font-size: 1.15rem;
   margin-bottom: 0.3rem; 
@@ -206,7 +239,7 @@ nav {
   flex: 1 1 0;
   align-self: stretch; 
   position: relative; 
-  padding-left: 3rem; 
+  padding-left: 2.5rem; 
 }
 
 .parameters-right {
@@ -222,7 +255,7 @@ nav {
 
 .vertical-timeline-left{
   position: absolute; 
-  left: 1.3rem; 
+  left: 0.8rem; 
   top: 0; 
   bottom: 0; 
   width: 2px; 
@@ -258,16 +291,32 @@ nav {
   font-size: 0.9rem;
 }
 
+/* Resources & Reports */
+
+.resources {
+  padding: 1rem 2rem 2rem;
+}
+
+.resources h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--berry);
+  margin: 0rem 0 3rem;
+  text-align: center; 
+}
+
 /* proven results */
 
 .proven-results {
-  padding: 1rem 0rem 4rem 1.5rem; 
+  padding: 3rem 0rem 4rem 1.5rem; 
 }
 
 .proven-results h2 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--primary-purple);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--berry);
+  margin: 0rem 0 3rem;
+  text-align: center; 
 }
 
 .students-served-container {
@@ -296,7 +345,7 @@ nav {
 .students-served-container h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--primary-purple);
+  color: var(--berry);
   padding-bottom: 0.7rem; 
 }
 
@@ -317,7 +366,7 @@ nav {
 }
 
 .city-card h3 {
-  color: var(--primary-purple);
+  color: var(--berry);
   font-weight: 700;
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
@@ -326,7 +375,7 @@ nav {
 /* cta */
 
 .cta-section {
-  background-color: var(--primary-purple); 
+  background: linear-gradient(135deg, #6B2D5C 0%, #4A1F3F 100%); 
   text-align: center; 
 }
 
