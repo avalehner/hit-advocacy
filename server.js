@@ -55,7 +55,7 @@ app.get('/api/lookup', async (req, res) => {
 })
 
 //Endpoint 2: Send emails
-app.post ('/api/send-email', async (req, res) => {
+app.post('/api/send-email', async (req, res) => {
 
   //extract data from request body 
   const {
