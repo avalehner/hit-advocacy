@@ -11,11 +11,9 @@
       <div class="nav-container">
           <ul class="nav-links">
             <li><a href="index.html">HIT Advocacy Coalition</a></li>
-            <!-- <li><a href="coalition.html">HIT Advocacy Coalition</a></li> -->
-            <!-- <li><a href="impact.html">Impact</a></li> -->
           </ul>
         <div>
-           <a class="nav-button" href="take-action.html">Take Action</a>
+           <a class="nav-button" href="take-action.html">Contact Your Representatives</a>
         </div>
       </div>
     </nav>
@@ -33,11 +31,6 @@
           <div class="recipients-card">
             <h3>This email will be sent to:</h3>
             <ul class="recipient-list">
-              <!-- <li>Governor Kathy Hochul</li>
-              <li>Senate Majority Leader Andrea Stewart-Cousins</li>
-              <li>Assembly Speaker Carl Heastie</li>
-              <li>Senate Committee on Education Chair Shelley Mayer</li>
-              <li>Assembly Committee on Education Chair Michael Benedetto</li> -->
               <li id="user-senator">Your State Senator</li>  
               <li id="user-assembly">Your Assembly Member</li>
             </ul>
@@ -65,8 +58,8 @@
             </div>
             <div class="address-group">
               <div class="input-group">
-                <label for="city">City </label>
-                <input id="city" type="text" name="city">
+                <label for="city">City <span class="required">*</span></label>
+                <input id="city" type="text" name="city" required="">
               </div>
               <div class="input-group">
                 <label for="zip">Zip <span class="required">*</span></label>
@@ -87,6 +80,7 @@
             <div class="email-container">
               <p class="email-subject" id="email-subject">Subject: Urgent Request to Fund High-Impact Tutoring</p>
               <div class="email-content" id="email-content">
+                <p id="address-line"></p>
                 <p>I am writing to urge you to include $10M in the one-house budget for High-Impact Tutoring (HIT). High-Impact Tutoring is a proven, research-backed intervention that helps students close academic gaps, improve attendance, and increase overall well-being.</p>
                 <!-- <p>Despite its effectiveness, the federal government announced it's canceling funding for HIT. Without state investment, thousands of New York students will lose access to this critical support.</p> -->
                 <p>High-Impact Tutoring is 3-5 times more effective than other common interventions, with students gaining an average of 9 months of additional learning in a single academic year. Nearly 20,000 students have already been served across New York State with remarkable results.</p>

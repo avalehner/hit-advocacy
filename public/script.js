@@ -10,9 +10,7 @@ const assemblyMemberEl = document.getElementById('user-assembly')
 const senateMemberEl = document.getElementById('user-senator')
 const letterNameEl = document.getElementById('letter-name')
 const letterAddressEl = document.getElementById('letter-address')
-const emailContentEl = document.getElementById('email-content')
-const emailSubjectEl = document.getElementById('email-subject')
-const addressLineEl = document.getElementById('address-line')
+const letterAddressLineEl = document.getElementById('address-line')
 const formSubmitModal = document.getElementById('form-submit-modal')
 const modalClose = document.getElementById('modal-close')
 const userSenatorModal = document.getElementById('user-senator-modal')
@@ -42,84 +40,6 @@ const updateLetterPreview = () => {
     <p style="margin:0">${streetAddress} ${apartment}</p>
     <p style="margin:0";>${city}, NY,  ${zip}</p>
   `
-}
-
-const sendSenateEmail = async () => {
-  const userName = nameEl.value.trim()
-  const userEmail = emailEl.value.trim()
-  const emailContent = emailContentEl.innerHTML
-  const emailSubject = emailSubjectEl.textContent
-
-  try {
-    console.log('Sending senator email...')
-    const senateRes = await fetch('/api/send-email', {
-      method: 'POST', 
-      headers: { 'Content-Type': 'application/json' }, 
-      body: JSON.stringify({
-        userEmail: userEmail, 
-        userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', //update to senator email 
-        recipientName: `${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`,
-        recipientType: 'senator', 
-        emailSubject: emailSubject, 
-        emailContent: emailContent
-      })
-    })
-
-    if(!senateRes.ok) {
-      const error = await senateRes.json()
-      throw new Error(`Test email failed: ${error.error}`)
-    }
-    
-    //update modal
-    userSenatorModalMessage.innerHTML = `
-      <p>Your email has been sent to Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}.
-      Their office phone number is <span style="font-weight: 700;
-      color: #6B2D5C;">${currentLegislators.senator.phone}</span>. Please give the office a call to advocate for HIT funding</p>`
-      sendEmailButtonSenator.classList.add('hidden')
-
-    console.log(`success! your email has been sent to Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`)
-  } catch (error) {
-    console.error('Error sending senator email:', error)
-  }
-}
-
-const sendAssemblyEmail = async () => {
-  const userName = nameEl.value.trim()
-  const userEmail = emailEl.value.trim()
-  const emailContent = emailContentEl.innerHTML
-  const emailSubject = emailSubjectEl.textContent
-
-  try {
-    console.log('Sending Assembly Member email...')
-    const assemblyRes = await fetch('/api/send-email', {
-      method: 'POST', 
-      headers: { 'Content-Type': 'application/json' }, 
-      body: JSON.stringify({
-        userEmail: userEmail, 
-        userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', //update to senator email 
-        recipientName: `${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`,
-        recipientType: 'assemblymember', 
-        emailSubject: emailSubject, 
-        emailContent: emailContent
-      })
-    })
-
-    if(!assemblyRes.ok) {
-      const error = await assemblyRes.json()
-      throw new Error(`Test email failed: ${error.error}`)
-    }
-    
-    //update modal
-    userAssemblyModalMessage.innerHTML = `<p>Your email has been sent to Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}. Their office phone number is <span style="font-weight: 700;
-    color: #6B2D5C;">${currentLegislators.assemblymember.phone}</span>. Please give the office a call to advocate for HIT funding!</p>`
-    sendEmailButtonAssembly.classList.add('hidden')
-
-    console.log(`success! your email has been sent to Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`)
-  } catch (error) {
-    console.error('Error sending Assembly Member email:', error)
-  }
 }
 
 const findLegislators = async () => {
@@ -162,16 +82,11 @@ const findLegislators = async () => {
       //update frontend with legislator names
       senateMemberEl.textContent = `Your State Senator: ${data.senator.first_name} ${data.senator.last_name} `
       assemblyMemberEl.textContent = `Your Assembly Member: ${data.assemblymember.first_name} ${data.assemblymember.last_name} `
-      // addressLineEl.textContent = `Dear Governor Hochul, Senate Majority Leader Stewart-Cousins, and Speaker Heastie, Chair Mayer, Chair Benedetto, Senator ${data.senator.last_name}, Assembly Member ${data.assemblymember.last_name},`
-
-
+    
       //update modal 
       userSenatorModal.textContent = `${data.senator.first_name} ${data.senator.last_name}`
       userAssemblyMemberModal.textContent = `${data.assemblymember.first_name} ${data.assemblymember.last_name}`
       formSubmitModal.classList.remove('hidden')
-
-      //call send email function 
-      // await sendEmails(data)
 
     } else {
       console.error('error:', data.error)
@@ -180,6 +95,88 @@ const findLegislators = async () => {
       console.error(error)
   } finally {
     findRepsBtn.disabled = false 
+  }
+}
+
+const sendSenateEmail = async () => {
+  const userName = nameEl.value.trim()
+  const userEmail = emailEl.value.trim()
+  letterAddressLineEl.textContent = `Dear Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name},`
+  const emailContent = document.getElementById('email-content').innerHTML
+  const emailSubject = document.getElementById('email-subject').textContent
+
+  try {
+    console.log('Sending senator email...')
+    const senateRes = await fetch('/api/send-email', {
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify({
+        userEmail: userEmail, 
+        userName: userName, 
+        recipientEmail: 'avalehner@gmail.com', //update to senator email 
+        recipientName: `${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`,
+        recipientType: 'senator', 
+        emailSubject: emailSubject, 
+        emailContent: emailContent
+      })
+    })
+
+    if(!senateRes.ok) {
+      const error = await senateRes.json()
+      throw new Error(`Test email failed: ${error.error}`)
+    }
+    
+    //update modal
+    userSenatorModalMessage.innerHTML = `
+      <p>Your email has been sent to Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}.
+      Their office phone number is <span style="font-weight: 700;
+      color: #6B2D5C;">${currentLegislators.senator.phone}</span>. Please give the office a call to advocate for HIT funding</p>`
+      sendEmailButtonSenator.classList.add('hidden')
+
+    console.log(`success! your email has been sent to Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`)
+  } catch (error) {
+    console.error('Error sending senator email:', error)
+  }
+}
+
+const sendAssemblyEmail = async () => {
+  const userName = nameEl.value.trim()
+  const userEmail = emailEl.value.trim()
+  letterAddressLineEl.textContent = `Dear Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}, `
+  const emailContent = document.getElementById('email-content').innerHTML
+  const emailSubject = document.getElementById('email-subject').textContent
+
+  letterAddressLineEl.textContent = `Dear Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}, `
+
+  try {
+    console.log('Sending Assembly Member email...')
+    const assemblyRes = await fetch('/api/send-email', {
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify({
+        userEmail: userEmail, 
+        userName: userName, 
+        recipientEmail: 'avalehner@gmail.com', //update to senator email 
+        recipientName: `${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`,
+        recipientType: 'assemblymember', 
+        emailSubject: emailSubject, 
+        emailContent: emailContent
+      })
+    })
+
+    if(!assemblyRes.ok) {
+      const error = await assemblyRes.json()
+      throw new Error(`Test email failed: ${error.error}`)
+    }
+    
+    //update modal
+    userAssemblyModalMessage.innerHTML = `<p>Your email has been sent to Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}. Their office phone number is <span style="font-weight: 700;
+    color: #6B2D5C;">${currentLegislators.assemblymember.phone}</span>. Please give the office a call to advocate for HIT funding!</p>`
+    sendEmailButtonAssembly.classList.add('hidden')
+
+    console.log(`success! your email has been sent to Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`)
+  } catch (error) {
+    console.error('Error sending Assembly Member email:', error)
   }
 }
 
@@ -209,4 +206,5 @@ modalClose.addEventListener('click', () =>{
   resetModal()
   userSenatorModal.textContent = ''
   userAssemblyMemberModal.textContent = ''
+  letterAddressLineEl.textContent = ''
 })
