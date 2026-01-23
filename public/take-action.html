@@ -23,6 +23,13 @@
       <section class="email-form-container">
         <div class="text-column">
           <h1>Tell Leaders in Albany to Fund High-Impact Tutoring</h1>
+          <div class="form-instructions">
+            <h2>Form Instructions:</h2>
+            <p>Please use this form to send emails to your state representatives advocating for HIT funding in the New York State Budget.</p>
+            <p>When you input your information into the form and click 'Find Representatives', it will automatically locate your state senator and assembly member.</p>
+            <p>After your legislators have been located you will have the option to send separate emails to both of them based off of the template at the bottom of the form.</p>
+            <p>After your emails have been sent you will see a confirmation pop up on the screen with your legislators phone information. Please follow up with them via phone and set up meetings to discuss HIT funding in the FY27 budget.</p>
+          </div>
           <div class="recipients-card">
             <h3>This email will be sent to:</h3>
             <ul class="recipient-list">
@@ -35,11 +42,10 @@
               <li id="user-assembly">Your Assembly Member</li>
             </ul>
           </div>
-          <p>ava add instructions here</p>
         </div>
         <div class="form-column">
           <div class="form-column-header">
-            <h2>Send an Email to Your Representatives</h2>
+            <h2>Find your Representatives and Send an Email</h2>
             <p>Asterisk (<span class="required">*</span>) denotes required field</p>
           </div>
           <div class="form">
@@ -75,13 +81,14 @@
               <label for="email">Email <span class="required">*</span></label>
               <input id="email" type="text" name="email" required="">
             </div>
-            <button class="send-email-btn" id="send-email-btn">✉ Send Email</button>
+            <button class="send-email-btn" 
+            id="find-representatives-btn">Find Representatives</button>
+            <!-- ✉ Send Email -->
             <div class="email-container">
               <p class="email-subject" id="email-subject">Subject: Urgent Request to Fund High-Impact Tutoring</p>
               <div class="email-content" id="email-content">
-                <p id="address-line">Dear Governor Hochul, Senate Majority Leader Stewart-Cousins, and Speaker Heastie, Chair Mayer, Chair Benedetto</p>
-                <p>I am writing to urge you to fund High-Impact Tutoring (HIT). High-Impact Tutoring is a proven, research-backed intervention that helps students close academic gaps, improve attendance, and increase overall well-being.</p>
-                <p>Despite its effectiveness, the federal government announced it's canceling funding for HIT. Without state investment, thousands of New York students will lose access to this critical support.</p>
+                <p>I am writing to urge you to include $10M in the one-house budget for High-Impact Tutoring (HIT). High-Impact Tutoring is a proven, research-backed intervention that helps students close academic gaps, improve attendance, and increase overall well-being.</p>
+                <!-- <p>Despite its effectiveness, the federal government announced it's canceling funding for HIT. Without state investment, thousands of New York students will lose access to this critical support.</p> -->
                 <p>High-Impact Tutoring is 3-5 times more effective than other common interventions, with students gaining an average of 9 months of additional learning in a single academic year. Nearly 20,000 students have already been served across New York State with remarkable results.</p>
                 <p>I urge you to champion sustained funding for High-Impact Tutoring programs in the upcoming budget cycle and work to expand these programs statewide. Every student in New York deserves access to this evidence-based intervention.</p>  
                 <p>Thank you for your consideration and your service to our community.</p>
@@ -95,18 +102,17 @@
       </section>
       <div class="hidden form-submit-modal" id="form-submit-modal">
         <div class="modal-content">
-          <i class="hidden fa-solid fa-x modal-close" id="modal-close"></i>
-          <h3 id="modal-message">Looking up legislators...</h3>
-          <div>
-            <ul class="hidden recipient-list" id="email-recipients">
-              <li>Governor Kathy Hochul</li>
-              <li>Senate Majority Leader Andrea Stewart-Cousins</li>
-              <li>Assembly Speaker Carl Heastie</li>
-              <li>Senate Committee on Education Chair Shelley Mayer</li>
-              <li>Assembly Committee on Education Chair Michael Benedetto</li>
-              <li id="user-senator-modal"><!-- inject with javascript--></li>
-              <li id="user-assembly-member-modal"><!-- inject with javascript--></li>
-            </ul>
+          <i class=" fa-solid fa-x modal-close" id="modal-close"></i>
+          <h3 id="modal-message"></h3>  
+          <div id="send-email-container" class="">
+            <div id="user-senator-modal-container">
+              <div id="user-senator-modal-message" class="">Your State Senator is <span id="user-senator-modal"></span></div>
+              <button id="send-email-btn-senator">✉ Send Email to Senator</button>
+            </div>
+            <div id="user-assembly-modal-container">
+              <div id="user-assembly-modal-message">Your Assembly Member is <span id="user-assembly-member-modal"></span></div>
+              <button id="send-email-btn-assembly">✉ Send Email to Assembly Member</button>
+            </div>
           </div>
         </div>
       </div>

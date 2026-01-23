@@ -63,7 +63,7 @@ app.post('/api/send-email', async (req, res) => {
     userName, 
     recipientEmail, 
     recipientName, 
-    recipientType, // 'assembly member' or 'senator
+    recipientType, // 'assembly member' or 'senator'
     emailSubject, 
     emailContent
   } = req.body
