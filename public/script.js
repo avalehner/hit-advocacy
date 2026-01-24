@@ -42,6 +42,12 @@ const updateLetterPreview = () => {
   `
 }
 
+nameEl.addEventListener('input', updateLetterPreview)
+streetAddressEl.addEventListener('input', updateLetterPreview)
+apartmentEl.addEventListener('input', updateLetterPreview)
+cityEl.addEventListener('input', updateLetterPreview)
+zipEl.addEventListener('input' , updateLetterPreview)
+
 const findLegislators = async () => {
   const userSenatorModal = document.getElementById('user-senator-modal')
   const userAssemblyMemberModal = document.getElementById('user-assembly-member-modal')
@@ -49,10 +55,11 @@ const findLegislators = async () => {
   const userEmail = emailEl.value.trim()
   const streetAddress = streetAddressEl.value.trim()
   const zip = zipEl.value.trim()
+  const city = cityEl.value.trim()
 
   //make sure address and zip both exist
-  if (!userName || !userEmail || !streetAddress || !zip) {
-    alert('Please fill out all required fields: name, email, address, zip')
+  if (!userName || !userEmail || !streetAddress || !zip || !city) {
+    alert('Please fill out all required fields: name, email, address, city, zip.')
     return 
   }
 
@@ -193,11 +200,6 @@ const resetModal = () => {
 }
 
 //event listeners
-nameEl.addEventListener('input', updateLetterPreview)
-streetAddressEl.addEventListener('input', updateLetterPreview)
-apartmentEl.addEventListener('input', updateLetterPreview)
-cityEl.addEventListener('input', updateLetterPreview)
-zipEl.addEventListener('input' , updateLetterPreview)
 findRepsBtn.addEventListener('click', findLegislators)
 sendEmailButtonAssembly.addEventListener('click', sendAssemblyEmail)
 sendEmailButtonSenator.addEventListener('click', sendSenateEmail)
