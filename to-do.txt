@@ -1,17 +1,11 @@
 Styling 
 2. optimize for mobile 
-3. create and style impact.html 
-4. create and style coalition page
 
 Email form 
 1. Connect senator and assembly member emails 
 2. Connect expanded email 
 3. Write letter to representative 
-4. Add alerts 
 
 Hosting
 1. Buy domian 
-
-Content
-1. Add links to NSSA in home page
-3. Link one pagers to home page/take action page
+2. Find different hosting service? 
