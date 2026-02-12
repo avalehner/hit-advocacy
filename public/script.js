@@ -120,7 +120,7 @@ const sendSenateEmail = async () => {
       body: JSON.stringify({
         userEmail: userEmail, 
         userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', //update to senator email 
+        recipientEmail: 'alehner@expandedschools.org', //update to senator email 
         recipientName: `${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`,
         recipientType: 'senator', 
         emailSubject: emailSubject, 
@@ -163,7 +163,7 @@ const sendAssemblyEmail = async () => {
       body: JSON.stringify({
         userEmail: userEmail, 
         userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', //update to senator email 
+        recipientEmail: 'alehner@expandedschools.org', //update to senator email 
         recipientName: `${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`,
         recipientType: 'assemblymember', 
         emailSubject: emailSubject, 
