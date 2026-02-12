@@ -94,7 +94,7 @@ app.post('/api/send-email', async (req, res) => {
 
     //send email with resend 
     const { data, error } = await resend.emails.send({
-      from: 'HIT Advocacy Coalition - New York <onboarding@resend.dev>', 
+      from: 'HIT Advocacy Coalition - New York <coalition@hitadvocacy.expandedschools.org>', 
 
       to: recipientEmail, 
       replyTo: userEmail, 
