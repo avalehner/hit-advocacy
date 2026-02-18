@@ -596,6 +596,12 @@ input {
   margin: 0; 
 }
 
+.title-organization {
+  display: flex; 
+  margin: 0; 
+  /* gap: 6px;  */
+}
+
 .form-submit-modal {
   position: fixed; 
   top: 0;
