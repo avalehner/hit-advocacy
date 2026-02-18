@@ -587,6 +587,15 @@ input {
   overflow-y: scroll; 
 }
 
+#letter-name {
+  margin-top: 16px; 
+  margin-bottom: 0px; 
+}
+
+#letter-organization, #letter-title {
+  margin: 0; 
+}
+
 .form-submit-modal {
   position: fixed; 
   top: 0;

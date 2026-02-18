@@ -67,12 +67,18 @@
               </div>
             </div>
             <div class="input-group">
-              <label for="phone">Phone</label>
-              <input id="phone" type="text" name="phone">
-            </div>
-            <div class="input-group">
               <label for="email">Email <span class="required">*</span></label>
               <input id="email" type="text" name="email" required="">
+            </div>
+            <div class="address-group">
+              <div class="input-group">
+                <label for="title">Title</label>
+                <input id="title" type="text" name="title">
+              </div>
+              <div class="input-group">
+                <label for="organization">Organization</label>
+                <input id="organization" type="text" name="organization">
+              </div>
             </div>
             <button class="send-email-btn" 
             id="find-representatives-btn">Find Representatives</button>
@@ -88,6 +94,8 @@
                 <p>Thank you for your consideration and your service to our community.</p>
                 <p>Sincerely,</p>
                 <p id="letter-name">[Your Name]</p>
+                <p id="letter-title">[Your Title]</p>
+                <p id="letter-organization">[Organization]</p>
                 <p id="letter-address">[Your Address]</p>
               </div>
             </div>

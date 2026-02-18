@@ -3,9 +3,7 @@ Styling
 
 Email form 
 1. Connect senator and assembly member emails 
-2. Connect expanded email 
 3. Write letter to representative 
 
 Hosting
 1. Buy domian 
-2. Find different hosting service? 
