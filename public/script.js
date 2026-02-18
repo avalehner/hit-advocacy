@@ -6,7 +6,6 @@ const apartmentEl = document.getElementById('apartment')
 const cityEl = document.getElementById('city')
 const zipEl = document.getElementById('zip')
 const emailEl = document.getElementById('email')
-const titleEl = document.getElementById('title')
 const organizationEl = document.getElementById('organization')
 const assemblyMemberEl = document.getElementById('user-assembly')
 const senateMemberEl = document.getElementById('user-senator')
@@ -14,6 +13,7 @@ const letterNameEl = document.getElementById('letter-name')
 const letterTitleEl = document.getElementById('letter-title')
 const letterOrganizationEL = document.getElementById('letter-organization')
 const letterAddressEl = document.getElementById('letter-address')
+const letterEmailEl = document.getElementById('letter-email')
 const letterAddressLineEl = document.getElementById('address-line')
 const formSubmitModal = document.getElementById('form-submit-modal')
 const modalClose = document.getElementById('modal-close')
@@ -33,17 +33,16 @@ let currentLegislators = null
 
 const updateLetterPreview = () => {
   const userName = nameEl.value.trim()
-  const userTitle = titleEl.value.trim()
   const userOrganization = organizationEl.value.trim()
+  const userEmail = emailEl.value.trim()
   const streetAddress = streetAddressEl.value.trim()
   const apartment = apartmentEl.value.trim()
   const city = cityEl.value.trim()
   const zip = zipEl.value.trim()
 
   letterNameEl.textContent = `${userName}`
-  letterTitleEl.textContent = `${userTitle}`
-  console.log(letterTitleEl.textContent)
   letterOrganizationEL.textContent = `${userOrganization}`
+  letterEmailEl.textContent = `${userEmail}`
   letterAddressEl.innerHTML = `
     <p style="margin:0">${streetAddress} ${apartment}</p>
     <p style="margin:0";>${city}, NY,  ${zip}</p>
@@ -55,8 +54,9 @@ streetAddressEl.addEventListener('input', updateLetterPreview)
 apartmentEl.addEventListener('input', updateLetterPreview)
 cityEl.addEventListener('input', updateLetterPreview)
 zipEl.addEventListener('input' , updateLetterPreview)
-titleEl.addEventListener('input' , updateLetterPreview)
 organizationEl.addEventListener('input' , updateLetterPreview)
+emailEl.addEventListener('input' , updateLetterPreview)
+
 
 const findLegislators = async () => {
   const userSenatorModal = document.getElementById('user-senator-modal')
