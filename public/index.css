@@ -513,6 +513,7 @@ nav {
   background-color: var(--cream);
   padding: 2rem; 
   border-radius: 8px;
+  color: var(--dark)
 }
 
 .form-instructions h2 {
