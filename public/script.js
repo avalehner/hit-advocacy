@@ -135,8 +135,6 @@ const sendSenateEmail = async () => {
   const emailContent = document.getElementById('email-content').innerHTML
   const emailSubject = document.getElementById('email-subject').textContent
 
-  console.log(`${currentLegislators.senator.email}`)
-
   try {
     console.log('Sending senator email...')
     const senateRes = await fetch('/api/send-email', {
@@ -145,7 +143,7 @@ const sendSenateEmail = async () => {
       body: JSON.stringify({
         userEmail: userEmail, 
         userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', 
+        recipientEmail: `${currentLegislators.senator.email}`, 
         recipientName: `${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`,
         recipientType: 'senator', 
         emailSubject: emailSubject, 
@@ -178,8 +176,6 @@ const sendAssemblyEmail = async () => {
   const emailContent = document.getElementById('email-content').innerHTML
   const emailSubject = document.getElementById('email-subject').textContent
 
-  console.log(`${currentLegislators.assemblymember.email}`)
-
   try {
     console.log('Sending Assembly Member email...')
     const assemblyRes = await fetch('/api/send-email', {
@@ -188,7 +184,7 @@ const sendAssemblyEmail = async () => {
       body: JSON.stringify({
         userEmail: userEmail, 
         userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', 
+        recipientEmail: `${currentLegislators.assemblymember.email}`, 
         recipientName: `${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`,
         recipientType: 'assemblymember', 
         emailSubject: emailSubject, 
