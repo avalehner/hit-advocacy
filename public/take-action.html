@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="index.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ab21415223.js" crossorigin="anonymous"></script>
@@ -20,20 +21,21 @@
     <main>
       <section class="email-form-container">
         <div class="text-column">
-          <h1>Tell Leaders in Albany to Fund High-Impact Tutoring</h1>
-          <div class="form-instructions">
-            <h2>Form Instructions:</h2>
-            <p>Please use this form to send emails to your state representatives advocating for HIT funding in the New York State Budget.</p>
-            <p>When you input your information into the form and click 'Find Representatives', it will automatically locate your state senator and assembly member.</p>
-            <p>After your legislators have been located you will have the option to send separate emails to both of them based off of the template at the bottom of the form.</p>
-            <p>After your emails have been sent you will see a confirmation pop up on the screen with your legislators phone information. Please follow up with them via phone and set up meetings to discuss HIT funding in the FY27 budget.</p>
-          </div>
+          <h1>Tell Your Representatives to Fund High-Impact Tutoring</h1>
           <div class="recipients-card">
-            <h3>This email will be sent to:</h3>
+            <h2>This email will be sent to</h2>
             <ul class="recipient-list">
               <li id="user-senator">Your State Senator</li>  
               <li id="user-assembly">Your Assembly Member</li>
             </ul>
+          </div>
+          <div class="form-instructions">
+            <h2>Instructions</h2>
+            <p>Please use this form to send emails to your state representatives advocating for HIT funding in the New York State Budget.</p>
+            <p>When you input your information into the form and click 'Find Representatives', it will automatically locate and inform you of your state senator and assembly member.</p>
+            <p>This template will pre-populate the electeds name at the top of the address line, and populate your information (name, organization, title, address) at the bottom of the email in the signature. You do not need to add your organization or title if you do not want to--only the information you enter into the form will be populated in the email.</p>
+            <p>After your legislators have been located you will have the option to send separate emails to both of them based off of the template at the bottom of the form.</p>
+            <p>After your emails have been sent you will see a confirmation pop up on the screen with your legislators phone information. Please follow up with them via phone and set up meetings to discuss HIT funding in the FY27 budget.</p>
           </div>
         </div>
         <div class="form-column">
@@ -70,25 +72,33 @@
               <label for="email">Email <span class="required">*</span></label>
               <input id="email" type="text" name="email" required="">
             </div>
-            <div class="input-group">
-              <label for="organization">Organization</label>
-              <input id="organization" type="text" name="organization">
+            <div class="address-group">
+              <div class="input-group">
+                <label for="title">Title</label>
+                <input id="title" type="text" name="title">
+              </div>
+              <div class="input-group">
+                <label for="organization">Organization</label>
+                <input id="organization" type="text" name="organization">
+              </div>
             </div>
             <button class="send-email-btn" 
             id="find-representatives-btn">Find Representatives</button>
             <!-- ✉ Send Email -->
             <div class="email-container">
-              <p class="email-subject" id="email-subject">Subject: Urgent Request to Fund High-Impact Tutoring</p>
+              <p class="email-subject" id="email-subject">Subject: Request to Fund High-Impact Tutoring</p>
               <div class="email-content" id="email-content">
                 <p id="address-line"></p>
                 <p>I am writing to ask you to<strong> support Assembly Bill 2625 / Senate Bill 1820</strong>, an act to establish and fund a High-Impact Tutoring (HIT) grant program. To fully realize the vision of this bill, I respectfully urge the Legislature to build upon the Governor’s Executive Budget proposal by allocating a <strong>total of $10 million for High-Impact Tutoring in the FY27 budget.</strong></p>
-                <p>HIT is a proven, research-backed intervention that helps students close academic achievement gaps, improve attendance, and increase overall student well-being. The focus on HIT comes at a time when New York students are in need of increased support with the 2024 National Assessment of Educational Progress scores showing that students, particularly Black and Latinx stude ts, remain below pre-pandemic levels in critical math and reading benchmarks. Research consistently shows that high-impact tutoring, defined as tutoring provided in small groups (ratios of 1:4 or less), at least three times per week, by consistent, trained tutors, is one of the most effective interventions for recovering lost learning. </p>
+                <p>HIT is a proven, research-backed intervention that helps students close academic achievement gaps, improve attendance, and increase overall student well-being. The focus on HIT comes at a time when New York students are in need of increased support with the 2024 National Assessment of Educational Progress scores showing that students, particularly Black and Latinx students, remain below pre-pandemic levels in critical math and reading benchmarks. Research consistently shows that High-Impact Tutoring, defined as tutoring provided in small groups (ratios of 1:4 or less), at least three times per week, by consistent, trained tutors, is one of the most effective interventions for recovering lost learning. </p>
                 <p>Investing state funding in HIT would allow more students to access this vital resource. I ask that you invest in our students’ potential, and give New York students, regardless of economic or social challenges, the opportunity to achieve academic success.</p>  
                 <p>Thank you for your consideration and your service to our community.</p>
                 <p>Sincerely,</p>
-                <p id="letter-name">[Your Name]</p>
-                <p id="letter-organization">[Your Organization]</p>
+                <div id="letter-signature">
+                  <p id="letter-name">[Your Name]</p>
+                  <p id="letter-organization">[Your Organization]</p>
                 <p id="letter-email">[Your Email]</p>
+                </div>
                 <p id="letter-address">[Your Address]</p>
               </div>
             </div>

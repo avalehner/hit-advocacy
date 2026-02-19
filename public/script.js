@@ -6,14 +6,12 @@ const apartmentEl = document.getElementById('apartment')
 const cityEl = document.getElementById('city')
 const zipEl = document.getElementById('zip')
 const emailEl = document.getElementById('email')
+const titleEl = document.getElementById('title')
 const organizationEl = document.getElementById('organization')
 const assemblyMemberEl = document.getElementById('user-assembly')
 const senateMemberEl = document.getElementById('user-senator')
-const letterNameEl = document.getElementById('letter-name')
-const letterTitleEl = document.getElementById('letter-title')
-const letterOrganizationEL = document.getElementById('letter-organization')
+const letterSignatureEl = document.getElementById('letter-signature')
 const letterAddressEl = document.getElementById('letter-address')
-const letterEmailEl = document.getElementById('letter-email')
 const letterAddressLineEl = document.getElementById('address-line')
 const formSubmitModal = document.getElementById('form-submit-modal')
 const modalClose = document.getElementById('modal-close')
@@ -34,18 +32,32 @@ let currentLegislators = null
 const updateLetterPreview = () => {
   const userName = nameEl.value.trim()
   const userOrganization = organizationEl.value.trim()
+  const userTitle = titleEl.value.trim()
   const userEmail = emailEl.value.trim()
   const streetAddress = streetAddressEl.value.trim()
   const apartment = apartmentEl.value.trim()
   const city = cityEl.value.trim()
   const zip = zipEl.value.trim()
 
-  letterNameEl.textContent = `${userName}`
-  letterOrganizationEL.textContent = `${userOrganization}`
-  letterEmailEl.textContent = `${userEmail}`
+  console.log(userTitle)
+
+  if(userTitle) {
+    letterSignatureEl.innerHTML = `
+      <p style="margin-top:16px; margin-bottom:0px;">${userName}</p>
+      <p style="margin:0;"><span>${userTitle}, </span>${userOrganization}</p>
+      <p style="margin:0;">${userEmail}</p>
+    `
+  } else {
+    letterSignatureEl.innerHTML = `
+      <p style="margin-top:16px; margin-bottom:0px;">${userName}</p>
+      <p style="margin:0;">${userOrganization}</p>
+      <p style="margin:0;">${userEmail}</p>
+    `
+  }
+
   letterAddressEl.innerHTML = `
-    <p style="margin:0">${streetAddress} ${apartment}</p>
-    <p style="margin:0";>${city}, NY,  ${zip}</p>
+    <p style="margin:0;">${streetAddress} ${apartment}</p>
+    <p style="margin:0;">${city}, NY,  ${zip}</p>
   `
 }
 
@@ -55,6 +67,7 @@ apartmentEl.addEventListener('input', updateLetterPreview)
 cityEl.addEventListener('input', updateLetterPreview)
 zipEl.addEventListener('input' , updateLetterPreview)
 organizationEl.addEventListener('input' , updateLetterPreview)
+titleEl.addEventListener('input', updateLetterPreview)
 emailEl.addEventListener('input' , updateLetterPreview)
 
 
@@ -122,6 +135,8 @@ const sendSenateEmail = async () => {
   const emailContent = document.getElementById('email-content').innerHTML
   const emailSubject = document.getElementById('email-subject').textContent
 
+  console.log(`${currentLegislators.senator.email}`)
+
   try {
     console.log('Sending senator email...')
     const senateRes = await fetch('/api/send-email', {
@@ -130,7 +145,7 @@ const sendSenateEmail = async () => {
       body: JSON.stringify({
         userEmail: userEmail, 
         userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', //update to senator email 
+        recipientEmail: 'avalehner@gmail.com', 
         recipientName: `${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`,
         recipientType: 'senator', 
         emailSubject: emailSubject, 
@@ -163,7 +178,7 @@ const sendAssemblyEmail = async () => {
   const emailContent = document.getElementById('email-content').innerHTML
   const emailSubject = document.getElementById('email-subject').textContent
 
-  letterAddressLineEl.textContent = `Dear Assembly Member ${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}, `
+  console.log(`${currentLegislators.assemblymember.email}`)
 
   try {
     console.log('Sending Assembly Member email...')
@@ -173,7 +188,7 @@ const sendAssemblyEmail = async () => {
       body: JSON.stringify({
         userEmail: userEmail, 
         userName: userName, 
-        recipientEmail: 'avalehner@gmail.com', //update to assembly member email 
+        recipientEmail: 'avalehner@gmail.com', 
         recipientName: `${currentLegislators.assemblymember.first_name} ${currentLegislators.assemblymember.last_name}`,
         recipientType: 'assemblymember', 
         emailSubject: emailSubject, 
