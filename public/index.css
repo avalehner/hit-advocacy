@@ -836,15 +836,15 @@ footer {
   .nav-container {
     padding: 2rem 1rem;
     flex-direction: row;
-    gap: 1rem;
-    align-items: flex-start;
+    /* gap: 1rem; */
+    align-items: center;
   }
 
   .nav-links {
     gap: 1rem;
     font-size: 0.9rem;
-    /* max-width: 100px;  */
-    /* white-space: normal;  */
+    max-width: 100px;  
+    white-space: normal; 
   }
 
   .nav-links a {
@@ -857,8 +857,13 @@ footer {
   .nav-button {
     padding: 0.7rem 1.2rem;
     font-size: 0.8rem;
-    width: 100%;
+    max-width: 100px;
     text-align: center;
+    white-space: normal; 
+  }
+
+  .hide-on-mobile {
+    display: none;
   }
 
   /* Hero Section */
