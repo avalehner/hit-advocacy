@@ -39,8 +39,6 @@ const updateLetterPreview = () => {
   const city = cityEl.value.trim()
   const zip = zipEl.value.trim()
 
-  console.log(userTitle)
-
   if(userTitle) {
     letterSignatureEl.innerHTML = `
       <p style="margin-top:16px; margin-bottom:0px;">${userName}</p>
@@ -110,12 +108,12 @@ const findLegislators = async () => {
       currentLegislators = data 
 
       //update frontend with legislator names
-      senateMemberEl.textContent = `Your State Senator: ${data.senator.first_name} ${data.senator.last_name} `
+      senateMemberEl.textContent = `Your State Senator: ${data.senator.first_name} ${data.senator.last_name}`
       assemblyMemberEl.textContent = `Your Assembly Member: ${data.assemblymember.first_name} ${data.assemblymember.last_name} `
     
       //update modal 
-      userSenatorModal.textContent = `${data.senator.first_name} ${data.senator.last_name}`
-      userAssemblyMemberModal.textContent = `${data.assemblymember.first_name} ${data.assemblymember.last_name}`
+      userSenatorModal.textContent = `${data.senator.first_name} ${data.senator.last_name} (${data.senator.phone})`
+      userAssemblyMemberModal.textContent = `${data.assemblymember.first_name} ${data.assemblymember.last_name} (${data.assemblymember.phone})`
       formSubmitModal.classList.remove('hidden')
 
     } else {
