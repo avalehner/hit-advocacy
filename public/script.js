@@ -162,7 +162,7 @@ const sendSenateEmail = async () => {
     userSenatorModalMessage.innerHTML = `
       <p>Your email has been sent to Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}.
       Their office phone number is <span style="font-weight: 700;
-      color: #6B2D5C;">${currentLegislators.senator.phone}</span>. Please give the office a call to advocate for HIT funding</p>`
+      color: #6B2D5C;">${currentLegislators.senator.phone}</span>. Please give the office a call to advocate for HIT funding!</p>`
       sendEmailButtonSenator.classList.add('hidden')
 
     console.log(`success! your email has been sent to Senator ${currentLegislators.senator.first_name} ${currentLegislators.senator.last_name}`)
@@ -214,11 +214,13 @@ const sendAssemblyEmail = async () => {
 
 const resetModal = () => {
   userSenatorModalMessage.innerHTML = `
-    <p id="user-senator-modal-message">Your State Senator is <span id="user-senator-modal"></span></p>
+    Your State Senator is:
+    <p style="margin:0.5rem 0 0;" id="user-senator-modal"></p>
   `
   
   userAssemblyModalMessage.innerHTML = `
-    <p id="user-assembly-modal-message">Your Assembly Member is <span id="user-assembly-member-modal"></span></p>`
+    Your Assembly Member is:
+    <p style="margin:0.5rem 0 0;" id="user-assembly-member-modal"></p>`
 
   sendEmailButtonSenator.classList.remove('hidden')
   sendEmailButtonAssembly.classList.remove('hidden')
