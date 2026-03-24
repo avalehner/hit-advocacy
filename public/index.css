@@ -181,6 +181,31 @@ nav {
   color: var(--dark);
 }
 
+.coalition-members-container {
+  display: flex; 
+  justify-content: center;
+  gap: 175px; 
+  background-color: white;
+  padding: 1rem; 
+  border-radius: 20px;  
+  width: 75%; 
+  margin: 30px auto 0px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.coalition-members-container ul {
+  list-style-type: none;
+  text-align: center;  
+  padding: 0; 
+}
+
+.coalition-members-container li {
+  margin: 0.5em; 
+  font-size: 1.2rem;
+  font-weight: 600; 
+  color: var(--primary-orange); 
+}
+
 /* what is hit? */
 
 .emphasis {
@@ -892,7 +917,7 @@ footer {
     max-width: calc(100% - 2rem);
   }
 
-  /* Section Headings */
+  /* section headings */
   .about-the-coalition h2,
   .what-is-hit h2,
   .resources h2,
@@ -912,6 +937,8 @@ footer {
     font-size: 1rem;
     line-height: 1.6;
   }
+
+  /* What is hit */
 
   .what-is-hit h2 {
     margin-top: 0.5rem; 
