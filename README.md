@@ -2,5 +2,3 @@ This is an Advocacy website I built for my full-time job at ExpandED Schools whe
 
 The most exciting feature on this website is the email form which uses the GeoCodio and Resend API's to locate the users state senator and assembly member, and then send an automated email to those representatives advocating for tutoring funding in the state budget. 
 
-**Please note that while this email form is functional, I have not updated it to actively send emails to state senators/assembly members because I am still working internally with my team to update our email server's DNS records to enable proper email delivery** 
-
