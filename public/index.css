@@ -126,7 +126,7 @@ nav {
 /* index.html start */
 
 .main-container {
-  width: 1200px; 
+  width: 1050px;
   max-width: calc(100% - 10rem);
   margin: auto;
 }
@@ -134,7 +134,7 @@ nav {
 /* hero section */
 
 .hero-content-container {
-  width: 1200px; 
+  width: 1200px;
   max-width: calc(100% - 10rem);
   margin: auto;
 }
@@ -158,6 +158,9 @@ nav {
 
 .hero p {
   font-size: 1.3rem;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hit-text {
@@ -181,6 +184,9 @@ nav {
 .about-the-coalition p {
   font-size: 1.2rem;
   line-height: 1.5;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 0;
   color: var(--dark);
 }
